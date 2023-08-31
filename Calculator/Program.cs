@@ -1,4 +1,6 @@
 ﻿// Declare variables and then initialize to zero.
+using System.Globalization;
+
 double num1 = 0; double num2 = 0;
 
 // Display title as the C# console calculator app.
@@ -6,12 +8,40 @@ Console.WriteLine("Console Calculator in C#\r");
 Console.WriteLine("------------------------\n");
 
 // Ask the user to type the first number.
-Console.WriteLine("Type a number, and then press Enter");
-num1 = Convert.ToDouble(Console.ReadLine());
+bool validInput1 = false;
+while (!validInput1)
+{
+    Console.WriteLine("Type the first number, and then press Enter");
+    string input1 = Console.ReadLine();
+
+    // Replace commas with periods for consistent parsing
+    input1 = input1.Replace(',', '.');
+
+    validInput1 = double.TryParse(input1, NumberStyles.Float, CultureInfo.InvariantCulture, out num1);
+
+    if (!validInput1)
+    {
+        Console.WriteLine("Invalid input. Please enter a valid number.");
+    }
+}
 
 // Ask the user to type the second number.
-Console.WriteLine("Type another number, and then press Enter");
-num2 = Convert.ToDouble(Console.ReadLine());
+bool validInput2 = false;
+while (!validInput2)
+{
+    Console.WriteLine("Type the second number, and then press Enter");
+    string input2 = Console.ReadLine();
+
+    // Replace commas with periods for consistent parsing
+    input2 = input2.Replace(',', '.');
+
+    validInput2 = double.TryParse(input2, NumberStyles.Float, CultureInfo.InvariantCulture, out num2);
+
+    if (!validInput2)
+    {
+        Console.WriteLine("Invalid input. Please enter a valid number.");
+    }
+}
 
 // Ask the user to choose an option.
 Console.WriteLine("Choose an option from the following list:");
