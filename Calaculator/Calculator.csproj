@@ -11,4 +11,8 @@
     <Compile Include="C:\Users\james\Desktop\James practice\Calculator.JamesLizamore\Calculator\Calculator\Program.cs" Link="Program.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ClaculatorLibrary\CalculatorLibrary.csproj" />
+  </ItemGroup>
+
 </Project>
